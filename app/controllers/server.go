@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
-	"os"
 	"regexp"
 	"strconv"
 	"todo_app/app/models"
@@ -67,7 +66,7 @@ func StartMainServer() error {
 	http.HandleFunc("/todos/update/", parseURL(todoUpdate))
 	http.HandleFunc("/todos/delete/", parseURL(todoDelete))
 
-	port := os.Getenv("PORT")
-	return http.ListenAndServe(":"+port, nil)
-	// return http.ListenAndServe(":"+config.Config.Port, nil)
+	// port := os.Getenv("PORT")
+	// return http.ListenAndServe(":"+port, nil)
+	return http.ListenAndServe(":"+config.Config.Port, nil)
 }
